@@ -2,17 +2,17 @@ name: CI Pipeline
 on:
   pull_request:
     branches:
-     - main
-     - feature/*
-     - bugfix/*
+      - main
+      - feature/*
+      - bugfix/*
 jobs:
   ci:
     runs-on: ubunt-latest
     steps:
       - name: checkout repository
         uses: actions/checkout@v2
-      - name: Install NOde>js
-        uses: actions/checkout@v2 
+      - name: Install NOde.js
+        uses: actions/setup-node@v2
         with:
           node-version: '15'
       - name: Install dependencies
