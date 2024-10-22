@@ -18,14 +18,14 @@ jobs:
       - name: Install dependencies
         run: npm install
         working-directory: codebase/rdicidr-0.1.0
-      - name: Install prettier globally
+      - name: Install Prettier globally
         run: npm install -g prettier
       - name: Lint code with ESLint
         run: npm run lint
         working-directory: codebase/rdicidr-0.1.0
       - name: Format code with Prettier
         run: |
-          npx prettier --writer "./src/*/.{js,jsx,ts,tsx,json,css,scss,md}"
+          npx prettier --write "./src/*/.{js,jsx,ts,tsx,json,css,scss,md}"
           git config --global user.name github-actions
           git config --global user.email github-actions@github.com
           git add .
