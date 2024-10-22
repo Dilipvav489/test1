@@ -20,19 +20,19 @@ jobs:
         working-directory: codebase/rdicidr-0.1.0
       - name: Install prettier globally
         run: npm install -g prettier
-      - name: Lint code with EsLint
+      - name: Lint code with ESLint
         run: npm run lint
         working-directory: codebase/rdicidr-0.1.0
-      - name: Format code with prettier
+      - name: Format code with Prettier
         run: |
-          npx prettier --writer "./src?*/.{js,jsx,ts,tsx,json,css,,scss,md}"
+          npx prettier --writer "./src/*/.{js,jsx,ts,tsx,json,css,scss,md}"
           git config --global user.name github-actions
           git config --global user.email github-actions@github.com
           git add .
           git diff --quiet && git diff --staged --quiet || git commit -m "Apply automatic formatting changes"
         working-directory: codebase/rdicidr-0.1.0
       - name: Run Tests with Jest
-        run: Ci=true npm run test
+        run: CI=true npm run test
         working-directory: codebase/rdicidr-0.1.0
       - name: Build the Project
         run: npm run build
@@ -42,3 +42,4 @@ jobs:
         with:
           name: build-artifact
           path: odebase/rdicidr-0.1.0/build/
+## cmt##
